@@ -20,17 +20,17 @@ Psuedocode:
 */
 task main()
 {
-	while(true)
+	while(true)//* The while command tells the cortex to only run the following list of code only when the bump switch is pressed*//
 	{
-		if (SensorValue[OnButton] == 1)
+		if (SensorValue[OnButton] == 1)//*The bump switch has a value of 1 when pressed down so the motor will only activiate when it is held down*//
 		{
-			startMotor(CraneMotor, -25);
-			if (SensorValue[USenInput] == 4)
+			startMotor(CraneMotor, -25);//*Starts the motor in a counterclock wise rotation at a power level of 25 to ensure the sensor can detect changes*//
+			if (SensorValue[USenInput] == 4)//*This if statements tells the sonar sensor to rotate the motor in a clockwise rotation when an object (the block) is 4 cm above the sensor*//
 			{
 				startMotor(CraneMotor,25);
 			}
 		}
-		wait (3);
+		wait (3);//*This gives a delay between each itteration of the program to ensure the sensor has a chance to "reset" itself*//
 
 	}
 }
